@@ -1,15 +1,23 @@
+<!-- [mixins]
+<script>
+import flash from '@/mixins/flash';
+
+export default {
+  mixins: [flash]
+}
+</script> -->
+
+<script setup>
+import { useFlash } from '@/composables/useFlash';
+
+let { flash } = useFlash();
+</script>
+
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div>
+    <p>
+      <button @click="flash('Attention', 'It Works On The About Page', 'warning')">Click Me</button>
+    </p>
   </div>
 </template>
 
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>
